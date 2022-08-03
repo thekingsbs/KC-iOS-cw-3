@@ -26,6 +26,19 @@ struct ContentView: View {
         
     }
     
+    func title() -> String {
+        var heading:String
+        
+        if username == "" {
+            heading = "What is your username?"
+        } else {
+            heading = "Welcome back, \(username)!"
+        }
+        
+        return heading
+        
+    }
+    
     @State var username = ""
     
    
@@ -33,17 +46,20 @@ struct ContentView: View {
         
         ZStack {
             
-            Color.blue
+            Image("background1")
+                .resizable()
                 .ignoresSafeArea()
-                .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                
+            
             VStack {
                 
-                Text("Welcome back, \(username)!")
+                Text(title())
                     .padding().font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).foregroundColor(.white)
-                
+        
                 
                 Image(chooseImage())
                     .resizable()
+                    .frame(width: 300.0, height: 300.0)
                     .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                     .scaledToFit()
                 
@@ -52,6 +68,9 @@ struct ContentView: View {
                 TextField("What is your username?", text: $username)
                     .padding(.leading, 40)
                     .font(.title)
+                    .background(Color.white)
+                    .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                    
                 
                 Spacer()
             
