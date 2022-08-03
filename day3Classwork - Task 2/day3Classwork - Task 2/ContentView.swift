@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-
+//When testing it, put the name "Saleh" for the username. Trust me :)
 
 struct ContentView: View {
     
